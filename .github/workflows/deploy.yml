@@ -26,13 +26,4 @@ jobs:
       - name: Build project
         run: dotnet build ./AwsAppFileSystem/AwsAppFileSystem.csproj --configuration Release
 
-      - name: Deploy to AWS Lambda
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-        run: |
-          dotnet lambda deploy-function AwsAppFileSystem \
-            --project-location ./AwsAppFileSystem \
-            --region $AWS_REGION
-            --function-role arn:aws:iam::570829448606:role/Aws_Test_Profile_Role
+  
