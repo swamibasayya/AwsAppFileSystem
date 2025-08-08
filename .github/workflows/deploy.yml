@@ -21,10 +21,10 @@ jobs:
         run: dotnet tool install -g Amazon.Lambda.Tools
 
       - name: Restore dependencies
-        run: dotnet restore ./src/MyLambdaFunctionDemo/MyLambdaFunctionDemo.csproj
+        run: dotnet restore ./AwsAppFileSystem/AwsAppFileSystem.csproj
 
       - name: Build project
-        run: dotnet build ./src/MyLambdaFunctionDemo/MyLambdaFunctionDemo.csproj --configuration Release
+        run: dotnet build ./AwsAppFileSystem/AwsAppFileSystem.csproj --configuration Release
 
       - name: Deploy to AWS Lambda
         env:
@@ -32,7 +32,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          dotnet lambda deploy-function MyLambdaFunctionDemo \
-            --project-location ./src/MyLambdaFunctionDemo \
+          dotnet lambda deploy-function AwsAppFileSystem \
+            --project-location ./AwsAppFileSystem \
             --region $AWS_REGION
             --function-role arn:aws:iam::570829448606:role/Aws_Test_Profile_Role
