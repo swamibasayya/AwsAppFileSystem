@@ -59,7 +59,7 @@ ScaffoldingReadMe.txt
 *.pidb
 *.userprefs
 *.pidb.meta
-
+  
 # Rider
 .idea/
 
@@ -80,6 +80,7 @@ $RECYCLE.BIN/
 *.mdf
 *.ldf
 *.ndf
+*.vs
 
 # DotCover
 .idea/.idea.DotSettings
